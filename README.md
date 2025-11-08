@@ -39,20 +39,6 @@ To clone this repository and set up the working environment on a Windows machine
 
 ---
 
-## 🗂️ Suggested Folder Structure
-
-The project follows a standard structure to separate code, notebooks, and configuration files:
-
-solar-challenge-week0/
-├── data/              # Stores cleaned CSV files (ignored by Git)
-├── notebooks/         # Jupyter notebooks for EDA and analysis
-├── scripts/           # Helper Python scripts/modules
-├── .github/           # Configuration files for GitHub Actions (CI)
-[cite_start]├── .gitignore         # Ensures data/ and *.csv are not committed [cite: 41]
-[cite_start]├── requirements.txt   # Lists Python dependencies [cite: 41]
-└── README.md
-
----
-
 *Author: Rufta Gaiem Weldegiorgis*
+
 *Program: 10 Academy – AI Mastery (Week 0)*
