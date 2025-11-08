@@ -1,0 +1,47 @@
+# 1. Define the name of the workflow
+name: CI
+
+# 2. Define the Triggers (Fixes the "no event triggers defined" error)
+# This tells GitHub to run the workflow when you push to main or setup-task, 
+# or when you create a pull request targeting main.
+on:
+  push:
+    branches: [ main, setup-task ]
+  pull_request:
+    branches: [ main ]
+
+# 3. Define the jobs (what the workflow should do)
+jobs:
+  build:
+    # Use the latest version of the Ubuntu Linux runner
+    runs-on: ubuntu-latest
+    
+    # Define a matrix to test on multiple Python versions (optional, but good practice)
+    strategy:
+      matrix:
+        python-version: [ '3.9' ] # You can add '3.10', '3.11' later
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      # Step 2: Set up the Python environment
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Step 3: Install dependencies (This is the step from your instructions)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      # Step 4: Run a check (e.g., a linter or a simple command)
+      # This step is often used to run tests, but for a basic check, we can run a simple command.
+      # You can replace the 'echo' with your actual test command later (e.g., 'pytest').
+      - name: Basic check / placeholder for tests
+        run: |
+          echo "CI check successful up to installation step."
+
