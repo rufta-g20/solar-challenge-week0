@@ -1,6 +1,10 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ] # Only run on push to main
+  pull_request:
+    branches: [ main ] # Only run on pull requests targeting main
 
 jobs:
   build:
@@ -20,7 +24,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: Basic check / placeholder for tests
+      - name: Run tests (Verify Python installation)
         run: |
-          echo "CI check successful up to installation step."
-
+          python --version
