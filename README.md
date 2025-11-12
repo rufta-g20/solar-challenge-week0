@@ -37,6 +37,21 @@ To clone this repository and set up the working environment on a Windows machine
 4.  **Run Analysis**
     You can now run the analysis notebooks located in the `notebooks/` folder or scripts in `scripts/`.
 
+
+
+### 🧠 Example Usage
+
+Run cleaning and EDA notebooks:
+```bash
+jupyter notebook notebooks/benin_eda.ipynb
+```
+Run cross-country analysis:
+```bash
+jupyter notebook notebooks/compare_countries.ipynb
+```
+🩵 Troubleshooting
+
+If you encounter import errors (No module named scripts), ensure you are running notebooks from the notebooks/ folder and the parent directory is added to sys.path.
 ---
 
 *Author: Rufta Gaiem Weldegiorgis*
